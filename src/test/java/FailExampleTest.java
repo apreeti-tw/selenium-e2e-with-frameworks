@@ -6,6 +6,7 @@ import org.testng.annotations.*;
 import pageObjects.Navbar;
 import pageObjects.RegisterUserAndLoginPage;
 import resources.Base;
+import resources.DockerOperation;
 import resources.Utilities;
 
 import java.io.IOException;
@@ -47,10 +48,9 @@ public class FailExampleTest extends Base {
     }
 
     @AfterTest
-    public void tearDown(){
+    public void tearDown() throws IOException, InterruptedException {
         this.driver.close();
         log.info("Driver is closed");
-        this.driver.quit();
-        log.info("Driver has been quit");
+        DockerOperation.stopDocker();
     }
 }

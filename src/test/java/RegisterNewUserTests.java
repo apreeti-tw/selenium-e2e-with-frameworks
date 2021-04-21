@@ -4,6 +4,7 @@ import org.testng.annotations.*;
 import pageObjects.Navbar;
 import pageObjects.RegisterUserAndLoginPage;
 import resources.Base;
+import resources.DockerOperation;
 import resources.Utilities;
 
 import java.io.IOException;
@@ -37,8 +38,8 @@ public class RegisterNewUserTests extends Base {
     }
 
     @AfterTest
-    public void tearDown() {
+    public void tearDown() throws IOException, InterruptedException {
         this.driver.close();
-        this.driver.quit();
+        DockerOperation.stopDocker();
     }
 }

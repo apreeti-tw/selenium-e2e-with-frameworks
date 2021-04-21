@@ -4,6 +4,7 @@ import org.testng.annotations.*;
 import pageObjects.Navbar;
 import pageObjects.RegisterUserAndLoginPage;
 import resources.Base;
+import resources.DockerOperation;
 import resources.Utilities;
 
 import java.io.IOException;
@@ -14,7 +15,8 @@ public class LoginTests extends Base {
     private RegisterUserAndLoginPage registerUserAndLoginPage;
 
     @BeforeTest
-    public void setDriver() throws IOException {
+    public void setDriver() throws IOException, InterruptedException {
+        DockerOperation.startDocker();
         this.driver = initialiseDriver();
         this.driver.get(properties.getProperty("base_url"));
         navbar = new Navbar();
@@ -48,9 +50,9 @@ public class LoginTests extends Base {
     }
 
     @AfterTest
-    public void tearDown(){
+    public void tearDown() throws IOException, InterruptedException {
         this.driver.close();
-        this.driver.quit();
+        DockerOperation.stopDocker();
     }
 
     @DataProvider

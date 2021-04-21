@@ -8,6 +8,7 @@ import org.testng.annotations.Test;
 import pageObjects.Navbar;
 import pageObjects.ProductListingPage;
 import resources.Base;
+import resources.DockerOperation;
 
 import java.io.IOException;
 
@@ -17,7 +18,8 @@ public class SearchTests extends Base {
     private ProductListingPage productListingPage;
 
     @BeforeTest
-    public void setDriver() throws IOException {
+    public void setDriver() throws IOException, InterruptedException {
+        DockerOperation.startDocker();
         this.driver = initialiseDriver();
         driver.get(properties.getProperty("base_url"));
         navbar = new Navbar();
@@ -46,8 +48,8 @@ public class SearchTests extends Base {
     }
 
     @AfterTest
-    public void teardown(){
+    public void teardown() throws IOException, InterruptedException {
         this.driver.close();
-        this.driver.quit();
+        DockerOperation.stopDocker();
     }
 }
