@@ -5,6 +5,11 @@
     <listeners>
         <listener class-name="listeners.Listeners"></listener>
     </listeners>
+    <groups>
+        <run>
+            <exclude name="fail"></exclude>
+        </run>
+    </groups>
     <test name="StartStopDocker">
         <classes>
             <class name="docker.StartStopDocker"></class>

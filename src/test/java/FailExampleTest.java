@@ -27,7 +27,7 @@ public class FailExampleTest extends Base {
         registerUserAndLoginPage = new RegisterUserAndLoginPage();
     }
 
-    @Test
+    @Test (groups = {"fail"})
     public void failExampleScreenshotTest(){
         navbar.getAccountIcon().click();
         log.info("Clicked on account icon");
