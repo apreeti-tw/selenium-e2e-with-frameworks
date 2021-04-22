@@ -18,7 +18,7 @@ public class FailExampleTest extends Base {
     private static Logger log = LogManager.getLogger(FailExampleTest.class.getName());
 
     @BeforeTest
-    public void setDriver() throws IOException {
+    public void setDriver() throws IOException, InterruptedException {
         this.driver = initialiseDriver();
         log.info("Driver initialised successfully");
         this.driver.get(properties.getProperty("base_url"));
@@ -51,6 +51,5 @@ public class FailExampleTest extends Base {
     public void tearDown() throws IOException, InterruptedException {
         this.driver.close();
         log.info("Driver is closed");
-        DockerOperation.stopDocker();
     }
 }

@@ -16,7 +16,6 @@ public class LoginTests extends Base {
 
     @BeforeTest
     public void setDriver() throws IOException, InterruptedException {
-        DockerOperation.startDocker();
         this.driver = initialiseDriver();
         this.driver.get(properties.getProperty("base_url"));
         navbar = new Navbar();
@@ -52,7 +51,6 @@ public class LoginTests extends Base {
     @AfterTest
     public void tearDown() throws IOException, InterruptedException {
         this.driver.close();
-        DockerOperation.stopDocker();
     }
 
     @DataProvider

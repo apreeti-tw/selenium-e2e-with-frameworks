@@ -38,8 +38,7 @@ public class RegisterNewUserTests extends Base {
     }
 
     @AfterTest
-    public void tearDown() throws IOException, InterruptedException {
+    public void tearDown() throws IOException {
         this.driver.close();
-        DockerOperation.stopDocker();
     }
 }

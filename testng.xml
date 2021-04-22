@@ -5,6 +5,11 @@
     <listeners>
         <listener class-name="listeners.Listeners"></listener>
     </listeners>
+    <test name="StartStopDocker">
+        <classes>
+            <class name="docker.StartStopDocker"></class>
+        </classes>
+    </test>
     <test name="LoginTests">
         <classes>
             <class name="LoginTests"></class>

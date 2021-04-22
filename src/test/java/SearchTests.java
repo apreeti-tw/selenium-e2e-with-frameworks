@@ -1,10 +1,7 @@
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
-import org.testng.annotations.AfterTest;
-import org.testng.annotations.BeforeTest;
-import org.testng.annotations.Parameters;
-import org.testng.annotations.Test;
+import org.testng.annotations.*;
 import pageObjects.Navbar;
 import pageObjects.ProductListingPage;
 import resources.Base;
@@ -19,7 +16,6 @@ public class SearchTests extends Base {
 
     @BeforeTest
     public void setDriver() throws IOException, InterruptedException {
-        DockerOperation.startDocker();
         this.driver = initialiseDriver();
         driver.get(properties.getProperty("base_url"));
         navbar = new Navbar();
@@ -50,6 +46,5 @@ public class SearchTests extends Base {
     @AfterTest
     public void teardown() throws IOException, InterruptedException {
         this.driver.close();
-        DockerOperation.stopDocker();
     }
 }
