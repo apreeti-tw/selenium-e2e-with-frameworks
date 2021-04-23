@@ -1,0 +1,27 @@
+pipeline{
+    stages{
+        stage ('build'){
+            steps{
+                echo "building the application"
+            }
+        }
+
+        stage ('test'){
+             steps{
+                echo "running unit tests"
+             }
+        }
+
+        stage ('run-ui-tests'){
+             steps{
+                sh "mvn test"
+             }
+        }
+
+        stage ('release'){
+             steps{
+                echo "deploying to live"
+             }
+        }
+    }
+}
