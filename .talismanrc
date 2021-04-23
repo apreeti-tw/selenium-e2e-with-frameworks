@@ -8,6 +8,6 @@ fileignoreconfig:
   ignore_detectors: []
 fileignoreconfig:
 - filename: .jenkinsfile
-  checksum: 456cdc9e93a33d3832d4b7f3d0f47432f798b8ec7975f7c1919a465cd5ba8987
+  checksum: f496d7f565caef4745939732a4fd06171b37301b01723ca1e0cf3daca5f6ba22
   ignore_detectors: []
 scopeconfig: []

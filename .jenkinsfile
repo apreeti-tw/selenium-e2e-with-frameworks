@@ -15,12 +15,13 @@ pipeline{
         }
 
         stage ('run-ui-tests'){
-             withCredentials([usernamePassword(credentialsId: 'test-user', passwordVariable: 'PASSWORD', usernameVariable: 'USERNAME')]) {
-                 sh "export PASSWORD=$PASSWORD"
-                 sh "export USERNAME=$USERNAME"
-             }
-
              steps{
+                script {
+                    withCredentials([usernamePassword(credentialsId: 'test-user', passwordVariable: 'PASSWORD', usernameVariable: 'USERNAME')]) {
+                       sh "export PASSWORD=$PASSWORD"
+                       sh "export USERNAME=$USERNAME"
+                    }
+                }
                 sh "mvn test"
              }
         }
