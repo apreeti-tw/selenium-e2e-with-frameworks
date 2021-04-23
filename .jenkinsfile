@@ -1,13 +1,6 @@
 pipeline{
     agent any
 
-    node{
-        withCredentials([usernamePassword(credentialsId: 'test-user', passwordVariable: 'PASSWORD', usernameVariable: 'USERNAME')]) {
-            sh "export PASSWORD=$PASSWORD"
-            sh "export USERNAME=$USERNAME"
-        }
-    }
-
     stages{
         stage ('build'){
             steps{
@@ -22,6 +15,12 @@ pipeline{
         }
 
         stage ('run-ui-tests'){
+             node{
+                withCredentials([usernamePassword(credentialsId: 'test-user', passwordVariable: 'PASSWORD', usernameVariable: 'USERNAME')]) {
+                    sh "export PASSWORD=$PASSWORD"
+                    sh "export USERNAME=$USERNAME"
+                 }
+             }
              steps{
                 sh "mvn test"
              }

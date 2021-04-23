@@ -10,4 +10,8 @@ fileignoreconfig:
 - filename: .jenkinsfile
   checksum: b2b19064f55af0209704e35e7b75445e1d268e2b88386e037f8fff71524fe181
   ignore_detectors: []
+fileignoreconfig:
+- filename: .jenkinsfile
+  checksum: fca04671a361100e6de35b2ce39755421189887ad32894274b42bdcee3e03aee
+  ignore_detectors: []
 scopeconfig: []
