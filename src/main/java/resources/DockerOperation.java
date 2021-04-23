@@ -28,11 +28,10 @@ public class DockerOperation {
                 if(line.contains(message)){
                     System.out.println("Selenium Hub started/stopped successfully");
                     hubStarted = true;
+                    br.close();
                     break;
                 }
             }
-
-            br.close();
         }
     }
 }

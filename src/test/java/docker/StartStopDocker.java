@@ -4,6 +4,7 @@ import org.testng.annotations.AfterSuite;
 import org.testng.annotations.BeforeSuite;
 import resources.DockerOperation;
 
+import java.io.File;
 import java.io.IOException;
 
 public class StartStopDocker {
@@ -14,6 +15,8 @@ public class StartStopDocker {
 
     @AfterSuite
     public void stopDocker() throws IOException, InterruptedException {
+        File file = new File("output.txt");
         DockerOperation.docker("stop", "Removing selenium-hub");
+        file.delete();
     }
 }
