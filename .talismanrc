@@ -6,4 +6,8 @@ fileignoreconfig:
 - filename: logs/prints.log
   checksum: 0d7dc84ed3af37b516d57ec4ac41409ea3e57049cf9c68452a9e18d35c00dd79
   ignore_detectors: []
+fileignoreconfig:
+- filename: .jenkinsfile
+  checksum: b2b19064f55af0209704e35e7b75445e1d268e2b88386e037f8fff71524fe181
+  ignore_detectors: []
 scopeconfig: []

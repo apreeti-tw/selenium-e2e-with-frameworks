@@ -56,8 +56,8 @@ public class LoginTests extends Base {
     @DataProvider
     public Object[][] getValidUserData(){
         Object[][] data = new Object[1][2];
-        data[0][0] = "test2@valid.com";
-        data[0][1] = "<some_text>";
+        data[0][0] = System.getenv("USERNAME");
+        data[0][1] = System.getenv("PASSWORD");
         return data;
     }
 
