@@ -49,7 +49,7 @@ public class LoginTests extends Base {
     }
 
     @AfterTest
-    public void tearDown() throws IOException, InterruptedException {
+    public void tearDown() {
         this.driver.close();
     }
 
