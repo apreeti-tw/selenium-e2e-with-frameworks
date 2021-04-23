@@ -21,7 +21,6 @@ pipeline{
 
         stage ('run-ui-tests'){
              steps{
-                sh "echo Username from credentials: $USERNAME"
                 sh "mvn test"
              }
         }
