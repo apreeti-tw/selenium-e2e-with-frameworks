@@ -39,7 +39,6 @@ public class Navbar extends Base {
     }
 
     public WebElement getCart(){
-        Utilities.explicitlyWaitForClickable(driver.findElement(cart));
         return driver.findElement(cart);
     }
 }
