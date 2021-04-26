@@ -3,6 +3,7 @@ package pageObjects;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import resources.Base;
+import resources.Utilities;
 
 public class Navbar extends Base {
     private By accountIcon = By.cssSelector("#account-button");
@@ -38,6 +39,7 @@ public class Navbar extends Base {
     }
 
     public WebElement getCart(){
+        Utilities.explicitlyWaitForClickable(driver.findElement(cart));
         return driver.findElement(cart);
     }
 }
