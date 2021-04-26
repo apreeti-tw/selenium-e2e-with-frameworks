@@ -10,7 +10,6 @@ import pageObjects.Navbar;
 import pageObjects.ProductDetailsPage;
 import pageObjects.ProductListingPage;
 import resources.Base;
-import resources.Utilities;
 
 import java.io.IOException;
 
@@ -32,7 +31,7 @@ public class CartTests extends Base {
     }
 
     @Test(dataProvider = "productList")
-    public void addToCartTest(String productName, String productPrice, String productSize) throws InterruptedException {
+    public void addToCartTest(String productName, String productPrice, String productSize) {
         navbar.getSearchIcon().click();
         navbar.getKeywords().sendKeys(productName);
         navbar.getKeywords().sendKeys(Keys.ENTER);

@@ -3,7 +3,6 @@ package pageObjects;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import resources.Base;
-import resources.Utilities;
 
 public class Navbar extends Base {
     private By accountIcon = By.cssSelector("#account-button");
