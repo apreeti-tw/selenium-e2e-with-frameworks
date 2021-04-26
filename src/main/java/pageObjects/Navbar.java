@@ -12,7 +12,6 @@ public class Navbar extends Base {
     private By logout = By.cssSelector("a[href*=logout]");
     private By searchIcon = By.className("search-icons");
     private By keywords = By.id("keywords");
-    private By cart = By.className("cart-icon");
 
     public WebElement getAccountIcon(){
         return driver.findElement(accountIcon);
@@ -36,9 +35,5 @@ public class Navbar extends Base {
 
     public WebElement getKeywords(){
         return driver.findElement(keywords);
-    }
-
-    public WebElement getCart(){
-        return driver.findElement(cart);
     }
 }

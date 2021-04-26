@@ -1,5 +1,6 @@
 package pageObjects;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindAll;
@@ -23,6 +24,9 @@ public class CartPage extends Base {
     @FindAll({@FindBy(className = "item-title")})
     private List<WebElement> productNames;
 
+    @FindAll({@FindBy(className = "product-added-modal-button")})
+    private List<WebElement> cartOptions;
+
     public WebElement getCartTotal(){
         return cartTotal;
     }
@@ -33,5 +37,9 @@ public class CartPage extends Base {
                 return true;
         }
         return false;
+    }
+
+    public WebElement getViewCart(){
+        return cartOptions.get(1);
     }
 }
