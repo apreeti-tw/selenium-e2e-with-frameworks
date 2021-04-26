@@ -24,8 +24,9 @@ public class Utilities extends Base{
         return (new Random().nextInt(upperbound));
     }
 
-    public static void closeModal() {
+    public static void closeModal() throws InterruptedException {
         driver.findElement(modalClose).click();
+        Thread.sleep(2000);
     }
 
     public static void explicitlyWaitForClickable(WebElement webElement){

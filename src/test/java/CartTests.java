@@ -32,7 +32,7 @@ public class CartTests extends Base {
     }
 
     @Test(dataProvider = "productList")
-    public void addToCartTest(String productName, String productPrice, String productSize){
+    public void addToCartTest(String productName, String productPrice, String productSize) throws InterruptedException {
         navbar.getSearchIcon().click();
         navbar.getKeywords().sendKeys(productName);
         navbar.getKeywords().sendKeys(Keys.ENTER);
