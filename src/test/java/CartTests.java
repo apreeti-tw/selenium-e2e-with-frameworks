@@ -28,7 +28,7 @@ public class CartTests extends Base {
         navbar = new Navbar();
         productListingPage = new ProductListingPage();
         productDetailsPage = new ProductDetailsPage();
-        cartPage = new CartPage();
+        cartPage = new CartPage(driver);
     }
 
     @Test(dataProvider = "productList")
