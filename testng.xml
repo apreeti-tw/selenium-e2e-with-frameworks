@@ -38,4 +38,9 @@
             <class name="FailExampleTest"></class>
         </classes>
     </test>
+    <test name="CartTests">
+        <classes>
+            <class name="CartTests"></class>
+        </classes>
+    </test>
 </suite>
