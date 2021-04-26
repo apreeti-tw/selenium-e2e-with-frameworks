@@ -31,11 +31,7 @@ public class CartPage extends Base {
     }
 
     public boolean listProductByName(String productName){
-        for(WebElement el: productNames){
-            if(el.getText().equals(productName))
-                return true;
-        }
-        return false;
+        return productNames.stream().anyMatch(el -> el.getText().equals(productName));
     }
 
     public WebElement getViewCart(){

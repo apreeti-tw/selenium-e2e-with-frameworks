@@ -8,6 +8,7 @@ import org.openqa.selenium.support.PageFactory;
 import resources.Base;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class ProductDetailsPage extends Base {
     private WebDriver driver;
@@ -27,11 +28,7 @@ public class ProductDetailsPage extends Base {
     private WebElement productAddedModal;
 
     public WebElement getSizeOptions(String option){
-        for (WebElement el:sizeOptions) {
-            if(el.getText().equals(option))
-                return el;
-        }
-        return null;
+        return (sizeOptions.stream().filter(el -> el.getText().equals(option)).collect(Collectors.toList())).get(0);
     }
 
     public WebElement getAddToCartButton(){
