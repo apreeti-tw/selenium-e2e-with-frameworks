@@ -3,3 +3,4 @@ reports/*
 *.iml
 target/*
 output.txt
+.DS_Store

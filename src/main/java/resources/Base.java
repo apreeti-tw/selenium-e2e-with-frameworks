@@ -28,6 +28,10 @@ public class Base {
                 System.setProperty("webdriver.chrome.driver", System.getProperty("user.dir")+"/src/main/java/resources/chromedriver");
                 driver = new RemoteWebDriver(new URL("http://localhost:4444"), chromeOptions);
                 break;
+            case "chrome_local":
+                System.setProperty("webdriver.chrome.driver", System.getProperty("user.dir")+"/src/main/java/resources/chromedriver");
+                driver = new ChromeDriver();
+                break;
             case "firefox":
                 break;
         }

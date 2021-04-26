@@ -2,6 +2,8 @@ package resources;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.util.Random;
 
@@ -19,5 +21,13 @@ public class Utilities extends Base{
 
     public static int randomNumber(int upperbound){
         return (new Random().nextInt(upperbound));
+    }
+
+    public static void closeModal() {
+        driver.findElement(By.xpath("//button[@class='close']/span")).click();
+    }
+
+    public static void explicitlyWaitForClickable(WebElement webElement){
+        new WebDriverWait(driver, 10).until(ExpectedConditions.elementToBeClickable(webElement));
     }
 }
