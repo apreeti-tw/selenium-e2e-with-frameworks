@@ -1,6 +1,7 @@
 package resources;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -24,9 +25,8 @@ public class Utilities extends Base{
         return (new Random().nextInt(upperbound));
     }
 
-    public static void closeModal() throws InterruptedException {
+    public static void closeModal(WebDriver driver) throws InterruptedException {
         driver.findElement(modalClose).click();
-        Thread.sleep(8000);
     }
 
     public static void explicitlyWaitForClickable(WebElement webElement){

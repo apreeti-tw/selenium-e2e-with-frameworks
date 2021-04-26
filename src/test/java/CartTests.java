@@ -41,7 +41,7 @@ public class CartTests extends Base {
         productDetailsPage.getSizeOptions(productSize).click();
         productDetailsPage.getAddToCartButton().click();
 
-        Utilities.closeModal();
+        Utilities.closeModal(driver);
         navbar.getCart().click();
 
         Assert.assertTrue(cartPage.listProductByName(productName));
