@@ -31,25 +31,27 @@ public class CartTests extends Base {
         cartPage = new CartPage();
     }
 
-    @Test
-    public void addToCartTest(){
+    @Test(dataProvider = "productList")
+    public void addToCartTest(String productName, String productPrice, String productSize){
         navbar.getSearchIcon().click();
-        navbar.getKeywords().sendKeys("dotted shirt");
+        navbar.getKeywords().sendKeys(productName);
         navbar.getKeywords().sendKeys(Keys.ENTER);
 
         productListingPage.getProductNames().get(0).click();
-        productDetailsPage.getSizeOptions("XS").click();
+        productDetailsPage.getSizeOptions(productSize).click();
         productDetailsPage.getAddToCartButton().click();
 
         Utilities.closeModal();
         navbar.getCart().click();
 
-        Assert.assertTrue(cartPage.getCartTotal().getText().contains("74.99"));
+        Assert.assertTrue(cartPage.listProductByName(productName));
     }
 
     @DataProvider(name = "productList")
     public Object[][] getProductList(){
-        Object[][] data = new Object[5][5];
+        Object[][] data = { {"Asymetric Coat", "79.99", "XS"},
+                            {"Pleated Sleeve V Neck Shirt", "40.99", "M"},
+                            {"Anorak With Hood", "99.99", "L"}};
         return data;
     }
 
