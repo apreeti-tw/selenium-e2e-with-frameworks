@@ -1,8 +1,3 @@
-import org.apache.poi.xssf.usermodel.XSSFCell;
-import org.apache.poi.xssf.usermodel.XSSFRow;
-import org.apache.poi.xssf.usermodel.XSSFSheet;
-import org.apache.poi.xssf.usermodel.XSSFWorkbook;
-import org.apache.poi.ss.usermodel.DataFormatter;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
@@ -15,8 +10,8 @@ import pageObjects.Navbar;
 import pageObjects.ProductDetailsPage;
 import pageObjects.ProductListingPage;
 import resources.Base;
+import resources.Utilities;
 
-import java.io.FileInputStream;
 import java.io.IOException;
 
 public class CartTests extends Base {
@@ -25,7 +20,6 @@ public class CartTests extends Base {
     private ProductListingPage productListingPage;
     private ProductDetailsPage productDetailsPage;
     private CartPage cartPage;
-    private DataFormatter formatter = new DataFormatter();
 
     @BeforeTest
     public void setDriver() throws IOException {
@@ -54,23 +48,7 @@ public class CartTests extends Base {
 
     @DataProvider(name = "productList")
     public Object[][] getProductList() throws IOException {
-        FileInputStream fis = new FileInputStream(System.getProperty("user.dir")+"/src/main/java/resources/Product Details.xlsx");
-        XSSFWorkbook workbook = new XSSFWorkbook(fis);
-        XSSFSheet sheet = workbook.getSheetAt(0);
-        XSSFRow row = sheet.getRow(0);
-        int rowCount = sheet.getPhysicalNumberOfRows();
-        int colCount = row.getLastCellNum();
-        Object[][] data = new Object[rowCount-1][colCount];
-
-        for(int i=0;i<rowCount-1;i++){
-            row=sheet.getRow(i+1);
-            System.out.println(row.getRowNum());
-            for(int j=0;j<colCount;j++) {
-                XSSFCell cell=row.getCell(j);
-                data[i][j]=formatter.formatCellValue(cell);
-            }
-        }
-        return data;
+        return Utilities.getDataFromExcel(System.getProperty("user.dir")+"/src/main/java/resources/Product Details.xlsx");
     }
 
     @AfterTest
