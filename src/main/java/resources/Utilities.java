@@ -26,7 +26,7 @@ public class Utilities extends Base{
 
     public static void closeModal() throws InterruptedException {
         driver.findElement(modalClose).click();
-        Thread.sleep(10000);
+        Thread.sleep(8000);
     }
 
     public static void explicitlyWaitForClickable(WebElement webElement){
