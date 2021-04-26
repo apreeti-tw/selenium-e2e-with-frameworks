@@ -1,38 +1,58 @@
 package pageObjects;
 
-import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.PageFactory;
 import resources.Base;
 
 public class Navbar extends Base {
-    private By accountIcon = By.cssSelector("#account-button");
-    private By signUp = By.cssSelector("a[href*=signup]");
-    private By login = By.cssSelector("a[href*=login]");
-    private By logout = By.cssSelector("a[href*=logout]");
-    private By searchIcon = By.className("search-icons");
-    private By keywords = By.id("keywords");
+    private WebDriver driver;
+
+    public Navbar (WebDriver driver) {
+        this.driver = driver;
+        PageFactory.initElements(driver, this);
+    }
+
+    @FindBy(css = "#account-button")
+    private WebElement accountIcon;
+
+    @FindBy(css = "a[href*=signup]")
+    private WebElement signUp;
+
+    @FindBy(css = "a[href*=login]")
+    private WebElement login;
+
+    @FindBy(css = "a[href*=logout]")
+    private WebElement logout;
+
+    @FindBy(className = "search-icons")
+    private WebElement searchIcon;
+
+    @FindBy(id = "keywords")
+    private WebElement keywords;
 
     public WebElement getAccountIcon(){
-        return driver.findElement(accountIcon);
+        return accountIcon;
     }
 
     public WebElement getLogout() {
-        return driver.findElement(logout);
+        return logout;
     }
 
     public WebElement getLogin() {
-        return driver.findElement(login);
+        return login;
     }
 
     public WebElement getSignUp(){
-        return driver.findElement(signUp);
+        return signUp;
     }
 
     public WebElement getSearchIcon(){
-        return driver.findElement(searchIcon);
+        return searchIcon;
     }
 
     public WebElement getKeywords(){
-        return driver.findElement(keywords);
+        return keywords;
     }
 }

@@ -18,8 +18,8 @@ public class RegisterNewUserTests extends Base {
     public void setDriver() throws IOException {
         this.driver = initialiseDriver();
         driver.get(properties.getProperty("base_url"));
-        navbar = new Navbar();
-        registerUserAndLoginPage = new RegisterUserAndLoginPage();
+        navbar = new Navbar(driver);
+        registerUserAndLoginPage = new RegisterUserAndLoginPage(driver);
     }
 
     @Test

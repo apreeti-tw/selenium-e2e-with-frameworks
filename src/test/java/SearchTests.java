@@ -18,8 +18,8 @@ public class SearchTests extends Base {
     public void setDriver() throws IOException, InterruptedException {
         this.driver = initialiseDriver();
         driver.get(properties.getProperty("base_url"));
-        navbar = new Navbar();
-        productListingPage = new ProductListingPage();
+        navbar = new Navbar(driver);
+        productListingPage = new ProductListingPage(driver);
     }
 
     @Parameters({"validSearchKeyword"})

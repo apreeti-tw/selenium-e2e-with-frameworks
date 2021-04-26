@@ -24,9 +24,9 @@ public class CartTests extends Base {
     public void setDriver() throws IOException {
         this.driver = initialiseDriver();
         this.driver.get(properties.getProperty("base_url"));
-        navbar = new Navbar();
-        productListingPage = new ProductListingPage();
-        productDetailsPage = new ProductDetailsPage();
+        navbar = new Navbar(driver);
+        productListingPage = new ProductListingPage(driver);
+        productDetailsPage = new ProductDetailsPage(driver);
         cartPage = new CartPage(driver);
     }
 

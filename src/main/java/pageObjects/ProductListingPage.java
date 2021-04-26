@@ -1,28 +1,45 @@
 package pageObjects;
 
-import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindAll;
+import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.PageFactory;
 import resources.Base;
 
 import java.util.List;
 
 public class ProductListingPage extends Base {
-    private By productList = By.xpath("//div[@data-hook='homepage_products']");
-    private By noProductsFoundHeader = By.className("plp-not-found-header");
-    private By noProductsFoundText = By.className("plp-not-found-text");
-    private By productNames = By.className("product-component-name");
+    private WebDriver driver;
+
+    public ProductListingPage(WebDriver driver){
+        this.driver = driver;
+        PageFactory.initElements(driver, this);
+    }
+
+    @FindBy(xpath = "//div[@data-hook='homepage_products']")
+    private WebElement productList;
+
+    @FindBy(className = "plp-not-found-header")
+    private WebElement noProductsFoundHeader;
+
+    @FindBy(className = "plp-not-found-text")
+    private WebElement noProductsFoundText;
+
+    @FindAll({@FindBy(className = "product-component-name")})
+    private List<WebElement> productNames;
 
     public WebElement getProductList(){
-        return driver.findElement(productList);
+        return productList;
     }
 
     public WebElement getNoProductsFoundHeader(){
-        return driver.findElement(noProductsFoundHeader);
+        return noProductsFoundHeader;
     }
 
     public WebElement getNoProductsFoundText(){
-        return driver.findElement(noProductsFoundText);
+        return noProductsFoundText;
     }
 
-    public List<WebElement> getProductNames() { return driver.findElements(productNames);}
+    public List<WebElement> getProductNames() { return productNames;}
 }

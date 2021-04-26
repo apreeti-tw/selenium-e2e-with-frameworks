@@ -23,8 +23,8 @@ public class FailExampleTest extends Base {
         log.info("Driver initialised successfully");
         this.driver.get(properties.getProperty("base_url"));
         log.info("Successfully navigated to "+ properties.getProperty("base_url"));
-        navbar = new Navbar();
-        registerUserAndLoginPage = new RegisterUserAndLoginPage();
+        navbar = new Navbar(driver);
+        registerUserAndLoginPage = new RegisterUserAndLoginPage(driver);
     }
 
     @Test (groups = {"fail"})

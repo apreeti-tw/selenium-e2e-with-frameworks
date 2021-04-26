@@ -15,11 +15,11 @@ public class LoginTests extends Base {
     private RegisterUserAndLoginPage registerUserAndLoginPage;
 
     @BeforeTest
-    public void setDriver() throws IOException, InterruptedException {
+    public void setDriver() throws IOException {
         this.driver = initialiseDriver();
         this.driver.get(properties.getProperty("base_url"));
-        navbar = new Navbar();
-        registerUserAndLoginPage = new RegisterUserAndLoginPage();
+        navbar = new Navbar(driver);
+        registerUserAndLoginPage = new RegisterUserAndLoginPage(driver);
     }
 
     @Test (dataProvider = "getValidUserData")

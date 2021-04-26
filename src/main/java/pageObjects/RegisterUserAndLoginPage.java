@@ -1,33 +1,51 @@
 package pageObjects;
 
-import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.PageFactory;
 import resources.Base;
 
 public class RegisterUserAndLoginPage extends Base {
-    private By email = By.cssSelector("#spree_user_email");
-    private By password = By.cssSelector("#spree_user_password");
-    private By confirmPassword = By.cssSelector("#spree_user_password_confirmation");
-    private By signUp = By.name("commit");
-    private By login = By.name("commit");
+    private WebDriver driver;
+
+    public RegisterUserAndLoginPage(WebDriver driver){
+        this.driver = driver;
+        PageFactory.initElements(driver, this);
+    }
+
+    @FindBy(css = "#spree_user_email")
+    private WebElement email;
+
+    @FindBy(css = "#spree_user_password")
+    private WebElement password;
+
+    @FindBy(css = "#spree_user_password_confirmation")
+    private WebElement confirmPassword;
+
+    @FindBy(name = "commit")
+    private WebElement signUp;
+
+    @FindBy(name = "commit")
+    private WebElement login;
 
     public WebElement getEmail(){
-        return driver.findElement(email);
+        return email;
     }
 
     public WebElement getPassword(){
-        return driver.findElement(password);
+        return password;
     }
 
     public WebElement getConfirmPassword(){
-        return driver.findElement(confirmPassword);
+        return confirmPassword;
     }
 
     public WebElement getSignUp(){
-        return driver.findElement(signUp);
+        return signUp;
     }
 
     public WebElement getLogin() {
-        return driver.findElement(signUp);
+        return login;
     }
 }
